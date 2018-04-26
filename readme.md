@@ -1,21 +1,4 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) AJAX & APIs (90 mins)
-
-
-| Timing | Type | Topic |
-| --- | --- | --- |
-| 5 min | [Opening](#opening) | Q&A |
-| 10 min | [Intro to New Material](#intro-to-apis) | Intro to APIs |
-| 10 min | [Intro to New Material](#intro-to-ajax) | Intro to AJAX |
-| 10 min | [Intro to New Material](#making-ajax-requests) | Making Ajax Requests |
-| 15 min | [Guided Practice](#making-api-call) | Making an API Call |
-| 10 min | [Independent Practice](#ind-practice) | Making an API Call |
-| 10 min | [Guided Practice](#reading-documentation) | Reading Documentation |
-| 10 min | [Independent Practice](#open-weather-maps) | OpenWeatherMap API |
-| _if time permits_ | [Intro to New Material](#network-tab) | HTTP and Chrome's Network Tab |
-| 5 min | [Conclusion](#conclusion) |Q&A |
-
-
->Instructor note: Students will be tested on AJAX fundamentals - Asynchronicity, Requests and callbacks, and Error handling - in the Front End Credentials assessment at the end of week 3. If your cohort will not be taking the Front End Credential, please feel free to move this lecture to where you see fit.
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) AJAX & APIs 
 
 ### LEARNING OBJECTIVES
 *After this lesson, you will be able to:*
@@ -35,11 +18,6 @@
 	- Get and set information inside DOM elements.
 	- Change the value of attributes on DOM elements.
 	- Write jQuery code to detect and react to a submit event.
-
-### INSTRUCTOR PREP
-*Before this lesson, instructors will need to:*
-
-- Have students open entire starter\_code folder in Sublime/Atom.
 
 ---
 <a name="opening"></a>
@@ -122,12 +100,11 @@ Spend two minutes discussing the following with a partner:
 
 Describe APIs. List a few examples where it would be helpful to use an external API.
 
-> Instructor note: Whiteboard student ideas.
 
 ***
 
 <a name="intro-to-ajax"></a>
-## Intro to AJAX (10 mins)
+## Intro to AJAX 
 
 Later in this lesson, we'll take a look at some examples of how we can make API calls.
 
@@ -181,7 +158,7 @@ This allows us to change the parts of the page that need to be updated — w
 
 
 <a name="making-ajax-requests"></a>
-## Making AJAX Requests (10 mins)
+## Making AJAX Requests
 
 Next, let's dig into the `ajax()` method, which we can use to request and send data. This method provides us with granular control by giving us more than 30 settings for managing our request.
 
@@ -307,7 +284,7 @@ We can provide them in any order, as long as we are using valid object literal n
 
 ***
 <a name="making-api-call"></a>
-## Guided Practice - Making an API Call (15 mins)
+## Guided Practice - Making an API Call 
 
 For our first API call, we'll use the Google Books API.
 
@@ -435,7 +412,7 @@ To access the title in this array, we can use the following syntax:
 
 ***
 <a name="ind-practice"></a>
-## Independent Practice - Making an API Call (10 mins)
+## Independent Practice - Making an API Call 
 
 Okay! Now that we know more about the URL, we'll use that information to make the API call and receive data. Let's dig into the JavaScript.
 
@@ -483,7 +460,7 @@ $('form').on('submit', function(e) {
 
 ***
 <a name="reading-documentation"></a>
-## Reading Documentation (10 mins)
+## Reading Documentation 
 
 Now that we have some experience working with APIs, we're going to take a step back and learn how to fully understand an API's documentation.
 
@@ -546,7 +523,7 @@ Find a partner and spend a few minutes exploring the documentation. See what dif
 
 ***
 <a name="open-weather-maps"></a>
-## Independent Practice - OpenWeatherMap API (15 mins)
+## Independent Practice - OpenWeatherMap API 
 
 Work with a partner to get practice making an API call to OpenWeatherMap.
 
@@ -554,7 +531,7 @@ Instructions can be found in [starter\_code/weather\_api](starter_code/weather_a
 
 ***
 <a name="network-tab"></a>
-## HTTP and Chrome's Network Tab (15 mins) (If time permits)
+## HTTP and Chrome's Network Tab 
 
 Now let's dive into the underlying communication layer responsible for transporting our API calls: HTTP.
 
@@ -717,7 +694,7 @@ For example, if you receive a 404, it means that your request was not found.
 ***
 
 <a name="conclusion"></a>
-## Conclusion (5 mins)
+## Conclusion 
 - What's the main use case of AJAX? Why would anyone use it?
 - How can we request data from an API using jQuery?
 
