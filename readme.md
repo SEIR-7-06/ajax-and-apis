@@ -57,7 +57,7 @@ Instead, we can use the Google Maps API to integrate the functionality of Google
 Even large companies such as WhatsApp and Airbnb use the Google Maps API.
 
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/4976/sjC5K4ZzwF0AAAAASUVORK5CYII_.png">
+<img src="assets/sjC5K4ZzwF0AAAAASUVORK5CYII_.png">
 
 
 Why bother recreating a map from scratch when we can use a platform that contains a variety of features and is maintained by a team of expert developers?
@@ -71,7 +71,7 @@ If we want to integrate social media sharing into our site, we can use the Twitt
 If we want to integrate a secure payment system into our site, we can make use of a payment API, such as PayPal.
 
 
-<img src ="http://circuits-assets.generalassemb.ly/prod/asset/4979/0OsH4CBAgQIECAAAECBAgQIECAAAECBAhUKCB0rhDTUAQIECBAgAABAgQIECBAgAABAgQIEKi7gNC57neA9RMgQIAAAQIECBAgQIAAAQIECBAgQKBCAaFzhZiGIkCAAAECBAgQIECAAAECBAgQIECAQN0FhM51vwOsnwABAgQIECBAgAABAgQIECBAgAABAhUKCJ0rxDQUAQIECBAgQIAAAQIECBAgQIAAAQIE6i4gdK77HWD9BAgQIECA.png">
+<img src ="assets/0OsH4CBAgQIECAAAECBAgQIECAAAECBAhUKCB0rhDTUAQIECBAgAABAgQIECBAgAABAgQIEKi7gNC57neA9RMgQIAAAQIECBAgQIAAAQIECBAgQKBCAaFzhZiGIkCAAAECBAgQIECAAAECBAgQIECAQN0FhM51vwOsnwABAgQIECBAgAABAgQIECBAgAABAhUKCJ0rxDQUAQIECBAgQIAAAQIECBAgQIAAAQIE6i4gdK77HWD9BAgQIECA.png">
 
 
 This allows our customers to make payments using the trusted accounts they've already set up.
@@ -122,11 +122,11 @@ AJAX is used all over the web. You've probably encountered it before, even if yo
 
 - For example, think of a live search that loads results as you type. With AJAX, the whole page doesn't refresh every time you type a character — only the results are updated.
 
-	<img src="http://circuits-assets.generalassemb.ly/prod/asset/5361/jsc-U8L1-amazon-cart.gif">
+	<img src="assets/jsc-U8L1-amazon-cart.gif">
 
 - Or if you type a username into a web form, you may see a notification that the username has already been taken.
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5362/jsc_U8L1_ajax-login.gif">
+<img src="assets/jsc_U8L1_ajax-login.gif">
 
 #### How does AJAX work?
 
@@ -173,7 +173,7 @@ Then we'll use object literal notation to pass in a settings object as the argum
 
 Here are some of the settings we can provide:
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/4992/08-39-settings_list.svg">
+<img src="assets/08-39-settings_list.svg">
 
 We can provide them in any order, as long as we are using valid object literal notation.
 
@@ -321,25 +321,25 @@ Let's take a look at the different components of a URL that could be used for an
 
 	This is really just a fancy way of saying "the rules of sending something from one place to another."
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5001/08-52-protocol.svg">
+<img src="assets/08-52-protocol.svg">
 
 - **The Host:** This is the domain name for the site. This request will be sent to a Domain Name Server (DNS), which will look up the IP address and find out where the files for that resource are stored. An IP address is a unique string of numbers that helps us locate the correct server.
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5002/08-53-host.svg">
+<img src="assets/08-53-host.svg">
 
 
 - **The Port:** Internet hosts have a certain number of ports that offer different services. One port could offer HTTP, another could offer mail routing, and so on. HTTP usually runs on port 80 and HTTPS runs on port 443, but this is not always the case. If the protocol is running on the default port (80 or 443), you don't need to specify a port number. If it is running on a different port, a colon (:) followed by the port number (in this case, 1234) is required to point to that port.
 
 
-	<img src="http://circuits-assets.generalassemb.ly/prod/asset/5003/08-54-port.svg">
+	<img src="assets/08-54-port.svg">
 
 - **The Resource Path:** Where the resource (HTML, JSON, PDF, images, etc.) is located.
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5004/08-55-path.svg">
+<img src="assets/08-55-path.svg">
 
 - **The Query:** We can use queries to "filter" the data we find and retrieve certain results.
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5005/08-56-query.svg">
+<img src="assets/08-56-query.svg">
 
 
 
@@ -347,25 +347,25 @@ Let's take a look at the different components of a URL that could be used for an
 
 Now let's break down what the URL that allows us to access information from Google Books looks like:
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5006/08-57-google.svg">
+<img src="assets/08-57-google.svg">
 
 
 
 - **The Protocol:** In this case, it will be HTTPS, which is the protocol used for a secure communication over a network.
-	<img src="http://circuits-assets.generalassemb.ly/prod/asset/5007/08-58-protocol.svg">
+	<img src="assets/08-58-protocol.svg">
 - **The Host:** Google host will be `www.googleapis.com`
-	<img src="http://circuits-assets.generalassemb.ly/prod/asset/5008/08-59-host.svg">
+	<img src="assets/08-59-host.svg">
 
 - **The Resource Path:** We want to access Version 1 of the books API and find a volume.
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5009/08-60-resource.svg">
+<img src="assets/08-60-resource.svg">
 
 - **The Query:** This is how we will look up a particular book.
-	<img src="http://circuits-assets.generalassemb.ly/prod/asset/5010/08-61-query.svg">
+	<img src="assets/08-61-query.svg">
 
 
 _This URL will mostly stay the same for each call; only the ISBN at the end will vary:_
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5011/08-62-usbn.svg">
+<img src="assets/08-62-usbn.svg">
 
 ####  Constructing the URL
 
@@ -473,7 +473,7 @@ In this lesson, we'll take a look at an API that has very clear documentation 
 
 If you go to the [OpenWeatherMap](http://openweathermap.org/api) site and scroll down, you'll see a section that says "API Documentation."
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5376/Screen_Shot_2016-07-17_at_6.13.07_PM.png">
+<img src="assets/Screen_Shot_2016-07-17_at_6.13.07_PM.png">
 
 #### API Keys
 
@@ -541,7 +541,7 @@ Among other things, it defines how messages passed between HTTP clients and HTTP
 
 As we've seen in previous lessons, the web is a service that works through a combination of clients (which make requests) and servers (which receive requests).
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5261/Slide-21-Client-Server-Model.svg">
+<img src="assets/Slide-21-Client-Server-Model.svg">
 
 
 Let's see how clients and servers handle the request-and-response process.
@@ -550,7 +550,7 @@ Let's see how clients and servers handle the request-and-response process.
 
 2. In the last lesson, we saw how the URL tells the server what the request is asking. Here's a refresher on the different elements that make up a URL:
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5073/08-28-url.svg">
+<img src="assets/08-28-url.svg">
 3. The HTTP server processes the HTTP request. This may entail passing the request to a web application written in a language such as Ruby, which creates an HTTP response.
 
 4. The response is sent back to the client.
@@ -568,7 +568,7 @@ In order to see the requests and responses that are sent out when the page first
 
 
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5067/A7aFmZyTXfq7AAAAAElFTkSuQmCC.png">
+<img src="assets/A7aFmZyTXfq7AAAAAElFTkSuQmCC.png">
 
 You should be able to see a few HTTP requests and responses in the "Network" tab.
 
@@ -581,24 +581,24 @@ Some HTTP requests are for CSS, JavaScript, and images referenced by the HTML.
 
 Let's go ahead and type a city and state into a simple form and hit "Get Weather," which will request the current weather data for that city from the OpenWeatherMap API.
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5068/5n5hXjlLZE0AAAAASUVORK5CYII_.png">
+<img src="assets/5n5hXjlLZE0AAAAASUVORK5CYII_.png">
 
 
 When we do this, we can see that the "Network" tab displays our API request:
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5262/08-32-last_line.svg">
+<img src="assets/08-32-last_line.svg">
 
 
 In order to inspect this request and its response, we'll click on the name in the far left-hand column and click on the "Headers" tab:
 
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5264/08-33-headers.svg">
+<img src="assets/08-33-headers.svg">
 
 
 Headers are metadata properties of an HTTP request or response, separate from the body of the message.
 
 
-<img src="http://circuits-assets.generalassemb.ly/prod/asset/5264/08-33-headers.svg">
+<img src="assets/08-33-headers.svg">
 
 #### Request
 
@@ -666,10 +666,10 @@ The standard format for this response is:
 
 - [Status Codes](http://en.wikipedia.org/wiki/List_of_HTTP_status_codes) have standard meanings; here are a few:
 
-	<img src="http://circuits-assets.generalassemb.ly/prod/asset/5070/08-39-table.svg" width="300px">
+	<img src="assets/08-39-table.svg" width="300px">
 - **Response Body:** If we click on the "Response" tab, this is what we'll see:
 
-	<img src="http://circuits-assets.generalassemb.ly/prod/asset/5069/h8rcP8_2FgFogAAAABJRU5ErkJggg__.png">
+	<img src="assets/h8rcP8_2FgFogAAAABJRU5ErkJggg__.png">
 	The response is a JSON object with the current weather data we requested from the OpenWeatherMap API.
 
 #### Review
