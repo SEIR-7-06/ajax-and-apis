@@ -6,21 +6,30 @@ $('form').on('submit', function(e) {
   var isbn = $('#isbn').val();
 
   $.ajax({
-      type: 'GET',
+      method: 'GET',
       url: googleBooksUrl + isbn,
-      success: function( response ) {
-        console.log(response);
-        var bookInfo = response.items[0].volumeInfo;
-
-        var listItemHTML = '<li>'
-        listItemHTML += '<h2>' + bookInfo.title + '</h2>'
-        listItemHTML += '<p>' + bookInfo.description + '</p>'
-        listItemHTML += '<img src="' + bookInfo.imageLinks.thumbnail + '">'
-        listItemHTML += '<a href="' + bookInfo.previewLink + '">Preview Book</a>'
-        listItemHTML += '</li>'
-
-        $('.books').append(listItemHTML);
-
-      }
+      success: bookSuccess,
+      error: bookError
   });
 });
+
+function bookSuccess ( response ) {
+  console.log(response);
+  var bookInfo = response.items[0].volumeInfo;
+
+  var listItemHTML = `<li>
+                        <h2>${bookInfo.title}</h2>
+                        <p>${bookInfo.description}</p>
+                        <img src="${bookInfo.imageLinks.thumbnail}">
+                        <a href="${bookInfo.previewLink}">Preview Book</a>
+                      </li>`
+
+  $('.books').append(listItemHTML);
+}
+
+function bookError ( error, error2, error3 ){
+  console.log(error);
+  console.log(error2);
+  console.log(error3);
+  alert(error2);
+}
