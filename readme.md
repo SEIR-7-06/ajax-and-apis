@@ -178,17 +178,17 @@ Here are some of the settings we can provide:
 We can provide them in any order, as long as we are using valid object literal notation.
 
 
-- **type** This will take the value "GET" if we want to request data from a server, and "POST" if we want to send data that updates on a server.
+- **method** This will take the value "GET" if we want to request data from a server, and "POST" if we want to send data that updates on a server.
 
   ```js
   $.ajax({
-    	type: "GET"
+    	method: "GET"
   });
   ```
 - **url** The URL setting defines the page where we'll send the request.
   ```js
   $.ajax({
-	    type: "GET",
+	    method: "GET",
 	    url: "http://www.omdbapi.com/?"
   });
   ```
@@ -197,7 +197,7 @@ We can provide them in any order, as long as we are using valid object literal n
 
   ```js
   $.ajax({
-    	type: "GET",
+    	method: "GET",
     	url: "http://www.omdbapi.com/?",
     	data: {
           id: 123
@@ -208,7 +208,7 @@ We can provide them in any order, as long as we are using valid object literal n
 - **success** Next, we have the success setting, which runs if the request is successfully completed.
   ```js
   $.ajax({
-    type: "GET",
+    method: "GET",
     url: "http://api.openweathermap.org/data/2.5/weather?q=",
     data: {
       id: 123
@@ -223,7 +223,7 @@ We can provide them in any order, as long as we are using valid object literal n
 
 	```js
 	$.ajax({
-		type: "GET",
+		method: "GET",
 		url: "http://api.openweathermap.org/data/2.5/weather?q=",
 		data: {
 		  	id: 123
@@ -241,7 +241,7 @@ We can provide them in any order, as long as we are using valid object literal n
 
   ```js
 	$.ajax({
-		type: 'GET',
+		method: 'GET',
 		url: 'http://api.openweathermap.org/data/2.5/weather?q=',
 		data: {
 		  id: 123
@@ -262,7 +262,7 @@ We can provide them in any order, as long as we are using valid object literal n
 
   ```js
   $.ajax({
-	    type: 'GET',
+	    method: 'GET',
 	    url: 'http://api.openweathermap.org/data/2.5/weather?q=',
 	    data: {
 	      id: 123
@@ -431,7 +431,7 @@ $('form').on('submit', function(e) {
   var isbn = $('#isbn').val();
 
   $.ajax({
-      type: 'GET',
+      method: 'GET',
       url: googleBooksUrl + isbn,
       success: function( response ) {
         console.log(response);
