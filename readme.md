@@ -437,12 +437,12 @@ $('form').on('submit', function(e) {
         console.log(response);
         var bookInfo = response.items[0].volumeInfo;
 
-        var listItemHTML = '<li>'
-				listItemHTML += '<h2>' + bookInfo.title + '</h2>'
-				listItemHTML += '<p>' + bookInfo.description + '</p>'
-				listItemHTML += '<img src="' + bookInfo.imageLinks.thumbnail + '">'
-				listItemHTML += '<a href="' + bookInfo.previewLink + '">Preview Book</a>'
-				listItemHTML += '</li>'
+        var listItemHTML = `<li>
+								<h2> ${bookInfo.title} </h2>
+								<p> ${bookInfo.description}</p>
+								<img src= ${bookInfo.imageLinks.thumbnail}>
+								<a href= ${bookInfo.previewLink }>Preview Book</a>
+							</li>`
 
         $('.books').append(listItemHTML);
 
