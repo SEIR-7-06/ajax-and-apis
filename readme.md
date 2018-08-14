@@ -71,7 +71,7 @@ If we want to integrate social media sharing into our site, we can use the Twitt
 If we want to integrate a secure payment system into our site, we can make use of a payment API, such as PayPal.
 
 
-<img src ="assets/0OsH4CBAgQIECAAAECBAgQIECAAAECBAhUKCB0rhDTUAQIECBAgAABAgQIECBAgAABAgQIEKi7gNC57neA9RMgQIAAAQIECBAgQIAAAQIECBAgQKBCAaFzhZiGIkCAAAECBAgQIECAAAECBAgQIECAQN0FhM51vwOsnwABAgQIECBAgAABAgQIECBAgAABAhUKCJ0rxDQUAQIECBAgQIAAAQIECBAgQIAAAQIE6i4gdK77HWD9BAgQIECA.png">
+<img src ="assets/urban.png">
 
 
 This allows our customers to make payments using the trusted accounts they've already set up.
