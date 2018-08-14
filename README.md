@@ -130,8 +130,6 @@ AJAX is used all over the web. You've probably encountered it before, even if yo
 
 #### How does AJAX work?
 
-How does AJAX work?
-
 1. First, the browser requests data from a server.
 2. The server then responds with data, often in HTML or JSON format.
 3. When the server has finished responding, the browser will fire an event. This event triggers a function that processes the data and adds it to the page.
