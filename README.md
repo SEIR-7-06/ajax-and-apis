@@ -71,7 +71,7 @@ If we want to integrate social media sharing into our site, we can use the Twitt
 If we want to integrate a secure payment system into our site, we can make use of a payment API, such as PayPal.
 
 
-<img src ="assets/0OsH4CBAgQIECAAAECBAgQIECAAAECBAhUKCB0rhDTUAQIECBAgAABAgQIECBAgAABAgQIEKi7gNC57neA9RMgQIAAAQIECBAgQIAAAQIECBAgQKBCAaFzhZiGIkCAAAECBAgQIECAAAECBAgQIECAQN0FhM51vwOsnwABAgQIECBAgAABAgQIECBAgAABAhUKCJ0rxDQUAQIECBAgQIAAAQIECBAgQIAAAQIE6i4gdK77HWD9BAgQIECA.png">
+<img src ="assets/urban.png">
 
 
 This allows our customers to make payments using the trusted accounts they've already set up.
@@ -129,8 +129,6 @@ AJAX is used all over the web. You've probably encountered it before, even if yo
 <img src="assets/jsc_U8L1_ajax-login.gif">
 
 #### How does AJAX work?
-
-How does AJAX work?
 
 1. First, the browser requests data from a server.
 2. The server then responds with data, often in HTML or JSON format.
@@ -437,12 +435,12 @@ $('form').on('submit', function(e) {
         console.log(response);
         var bookInfo = response.items[0].volumeInfo;
 
-        var listItemHTML = '<li>'
-				listItemHTML += '<h2>' + bookInfo.title + '</h2>'
-				listItemHTML += '<p>' + bookInfo.description + '</p>'
-				listItemHTML += '<img src="' + bookInfo.imageLinks.thumbnail + '">'
-				listItemHTML += '<a href="' + bookInfo.previewLink + '">Preview Book</a>'
-				listItemHTML += '</li>'
+        var listItemHTML = `<li>
+								<h2> ${bookInfo.title} </h2>
+								<p> ${bookInfo.description}</p>
+								<img src= ${bookInfo.imageLinks.thumbnail}>
+								<a href= ${bookInfo.previewLink }>Preview Book</a>
+							</li>`
 
         $('.books').append(listItemHTML);
 
