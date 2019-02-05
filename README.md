@@ -187,7 +187,7 @@ We can provide them in any order, as long as we are using valid object literal n
   ```js
   $.ajax({
 	    method: "GET",
-	    url: "http://www.omdbapi.com/?"
+	    url: "http://api.openweathermap.org/data/2.5/weather?q="
   });
   ```
 
@@ -196,7 +196,7 @@ We can provide them in any order, as long as we are using valid object literal n
   ```js
   $.ajax({
     	method: "GET",
-    	url: "http://www.omdbapi.com/?",
+    	url: "http://api.openweathermap.org/data/2.5/weather?q=",
     	data: {
           id: 123
       }
