@@ -436,8 +436,8 @@ $('form').on('submit', function(e) {
         var bookInfo = response.items[0].volumeInfo;
 
         var listItemHTML = `<li>
-				<h2> ${bookInfo.title} </h2>
-				<p> ${bookInfo.description}</p>
+				<h2>${bookInfo.title}</h2>
+				<p>${bookInfo.description}</p>
 				<img src= ${bookInfo.imageLinks.thumbnail}>
 				<a href= ${bookInfo.previewLink }>Preview Book</a>
 			    </li>`
@@ -634,6 +634,8 @@ Here is a full list of the HTTP request methods available to us:
 *   **HEAD**: Retrieve the headers for a resource.
 
 Of these, `"GET"` and `"POST"` are the most commonly used.
+
+> What's the difference between `PUT` and `PATCH`? `PUT` should be reserved for replacing an existing resource while `PATCH` can be used for updating pieces of an existing resource.
 
 #### Response
 
