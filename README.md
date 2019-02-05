@@ -436,14 +436,13 @@ $('form').on('submit', function(e) {
         var bookInfo = response.items[0].volumeInfo;
 
         var listItemHTML = `<li>
-								<h2> ${bookInfo.title} </h2>
-								<p> ${bookInfo.description}</p>
-								<img src= ${bookInfo.imageLinks.thumbnail}>
-								<a href= ${bookInfo.previewLink }>Preview Book</a>
-							</li>`
+				<h2> ${bookInfo.title} </h2>
+				<p> ${bookInfo.description}</p>
+				<img src= ${bookInfo.imageLinks.thumbnail}>
+				<a href= ${bookInfo.previewLink }>Preview Book</a>
+			    </li>`
 
         $('.books').append(listItemHTML);
-
       }
   });
 });
