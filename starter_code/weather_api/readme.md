@@ -5,7 +5,7 @@
 2. Get an API key from OpenWeatherMap: http://openweathermap.org/appid#get.
 3. Add an event for the form submit in your main.js file. (Don't forget to prevent the default action for forms so that the page won't refresh.)
 4. When the form is submitted:
-	- Get the value the user entered into the `#city` field and store it in a variable `key`.
+	- Get the value the user entered into the `#city` field and store it in a variable `cityName`.
 	- Use the `ajax()` method to write a request using the following settings:
 		- **url:** See hint below to find out how the URL should be formatted, or look at the documentation.
 		- **method:** Which method will we use to get data?
