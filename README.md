@@ -163,7 +163,7 @@ Next, let's dig into the `ajax()` method, which we can use to request and send d
 Let's take a look at the syntax for the AJAX method:
 
 ```js
-	$.ajax({ });
+$.ajax({ });
 ```
 
 Then we'll use object literal notation to pass in a settings object as the argument.
@@ -180,14 +180,14 @@ We can provide them in any order, as long as we are using valid object literal n
 
   ```js
   $.ajax({
-    	method: "GET"
+    method: "GET"
   });
   ```
 - **url** The URL setting defines the page where we'll send the request.
   ```js
   $.ajax({
-	    method: "GET",
-	    url: "http://api.openweathermap.org/data/2.5/weather?q="
+		method: "GET",
+		url: "http://api.openweathermap.org/data/2.5/weather?q="
   });
   ```
 
@@ -195,11 +195,11 @@ We can provide them in any order, as long as we are using valid object literal n
 
   ```js
   $.ajax({
-    	method: "GET",
-    	url: "http://api.openweathermap.org/data/2.5/weather?q=",
-    	data: {
-          id: 123
-      }
+		method: "GET",
+		url: "http://api.openweathermap.org/data/2.5/weather?q=",
+		data: {
+				id: 123
+		}
   });
   ```
 
@@ -210,8 +210,8 @@ We can provide them in any order, as long as we are using valid object literal n
     url: "http://api.openweathermap.org/data/2.5/weather?q=",
     data: {
       id: 123
-  },
-    success: function( response ) {
+  	},
+    success: function(response) {
       $('#temp').html("The temperature in Detroit is " + response.temp);
     }
   });
@@ -224,13 +224,13 @@ We can provide them in any order, as long as we are using valid object literal n
 		method: "GET",
 		url: "http://api.openweathermap.org/data/2.5/weather?q=",
 		data: {
-		  	id: 123
+			id: 123
 		},
-		success: function( response ) {
-		  	$('#temp').html("The temperature in Detroit is " + response.temp);
+		success: function(response) {
+			$('#temp').html("The temperature in Detroit is " + response.temp);
 		},
 		error: function() {
-		  	alert("There was an error getting weather data.");
+			alert("There was an error getting weather data.");
 		}
 	});
 	```
@@ -244,7 +244,7 @@ We can provide them in any order, as long as we are using valid object literal n
 		data: {
 		  id: 123
 		},
-		success: function( response ) {
+		success: function(response) {
 		  $('#temp').html('The temperature in Detroit is ' + response.temp);
 		},
 		error: function() {
@@ -260,23 +260,23 @@ We can provide them in any order, as long as we are using valid object literal n
 
   ```js
   $.ajax({
-	    method: 'GET',
-	    url: 'http://api.openweathermap.org/data/2.5/weather?q=',
-	    data: {
-	      id: 123
-	    },
-	    success: function( response ) {
-	      $('#temp').html('The temperature in Detroit is ' + response.temp);
-	    },
-	    error: function() {
-	      alert('There was an error getting weather data.');
-	    },
-	    beforeSend: function () {
-	      $('#page').append('Loading');
-	    },
-	    complete: function () {
-	      $('#loading').remove();
-	    }
+		method: 'GET',
+		url: 'http://api.openweathermap.org/data/2.5/weather?q=',
+		data: {
+			id: 123
+		}
+		success: function(response) {
+			$('#temp').html('The temperature in Detroit is ' + response.temp);
+		},
+		error: function() {
+			alert('There was an error getting weather data.');
+		},
+		beforeSend: function () {
+			$('#page').append('Loading');
+		},
+		complete: function () {
+			$('#loading').remove();
+		}
   });
   ```
 
@@ -431,7 +431,7 @@ $('form').on('submit', function(e) {
   $.ajax({
       method: 'GET',
       url: googleBooksUrl + isbn,
-      success: function( response ) {
+      success: function(response) {
         console.log(response);
         var bookInfo = response.items[0].volumeInfo;
 
