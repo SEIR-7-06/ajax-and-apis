@@ -288,15 +288,15 @@ For our first API call, we'll use the Google Books API.
 
 Starter code for this exercise can be found in [starter\_code/google\_books\_api](starter_code/google_books_api).
 
-We'll create a basic site where users can add books to a reading list by entering their International Standard Book Number (ISBN).
+We'll create a basic site where users can add books to a reading list by entering a search term.
 
-Let's start with a simple HTML form where a user can enter an ISBN, as well as an unordered list where we will add each book the user searches for:
+Let's start with a simple HTML form where a user can enter a search term, as well as an unordered list where we will add each book the user searches for:
 
 ```html
-<h1>Search for a book by ISBN</h1>
+<h1>Search for a book by search term</h1>
 
 <form>
-	<input type="text" id="isbn" name="isbn" value="" placeholder="Please enter an ISBN">
+	<input type="text" id="search-term" name="search-term" value="" placeholder="Please enter a search term">
 	<button type="submit">Find Book</button>
 </form>
 
@@ -309,7 +309,7 @@ Let's start with a simple HTML form where a user can enter an ISBN, as well as a
 
 Before taking a look at the JavaScript, let's take a step back and find out how we can access the data for a book using the Google Books API.
 
-To access this information, we'll need a URL where we can find the JSON data for a book that matches an ISBN number.
+To access this information, we'll need a URL where we can find the JSON data for a book that matches a search term.
 
 How does the server know what the request is actually asking? This is the job of the URL, a special path that specifies where a resource can be found on the web.
 
