@@ -361,19 +361,19 @@ Now let's break down what the URL that allows us to access information from Goog
 	<img src="assets/08-61-query.svg">
 
 
-_This URL will mostly stay the same for each call; only the ISBN at the end will vary:_
+_This URL will mostly stay the same for each call; only the search term at the end will vary:_
 
 <img src="assets/08-62-usbn.svg">
 
 ####  Constructing the URL
 
-We can use string concatenation to add the right ISBN to the URL, and then locate information about that book:
+We can use string concatenation to add the right search term to the URL, and then locate information about that book:
 
-`https://www.googleapis.com/books/v1/volumes?q=isbn:" + isbnUserEntered`
+`https://www.googleapis.com/books/v1/volumes?q=" + isbnUserEntered`
 
 > Paste the below URL into your browser and take a look at the JSON object that is returned.
 
-`https://www.googleapis.com/books/v1/volumes?q=isbn:0679775439`
+`https://www.googleapis.com/books/v1/volumes?q=dogs`
 
 Now that you've seen the full JSON response, let's take a look at a stripped-down version of the response showing us the relevant data.
 
@@ -390,7 +390,7 @@ You can see that we have an array named "items." This array contains a JSON obje
     "imageLinks": {
      "thumbnail": "http://books.google.com/books/content?id=iTt3WN2U8wwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
     },
-    "previewLink": "http://books.google.com/books?id=iTt3WN2U8wwC&printsec=frontcover&dq=isbn:0679775439&hl=&cd=1&source=gbs_api"
+    "previewLink": "http://books.google.com/books?id=iTt3WN2U8wwC&printsec=frontcover&q=dogs&hl=&cd=1&source=gbs_api"
     }
   }
  ]
@@ -411,26 +411,22 @@ Okay! Now that we know more about the URL, we'll use that information to make th
 
 - Paste the following code in your JS file.
 - Assemble a group of three or four and walk through each line of code. Talk about what each line will do.
-- Open the site in Chrome and test it out, entering different ISBN numbers into the input field.
-	- Try out the following ISBN numbers:
-		- 9781439154175
-		- 9780307477477
-		- 9781596792357
-		- 0679775439
-- Take a look at your console. We are using a `console.log` statement to log the response that was received from the server. Enter an ISBN, hit the submit button, and take a look at the full response that was returned.
+- Open the site in Chrome and test it out, entering different search terms into the field.
+
+- Take a look at your console. We are using a `console.log` statement to log the response that was received from the server. Enter a search term, hit the submit button, and take a look at the full response that was returned.
 
 ```js
 
-var googleBooksUrl = "https://www.googleapis.com/books/v1/volumes?q=isbn:";
+var googleBooksUrl = "https://www.googleapis.com/books/v1/volumes?q=";
 
 $('form').on('submit', function(e) {
   e.preventDefault();
 
-  var isbn = $('#isbn').val();
+  var searchTerm = $('#search-term').val();
 
   $.ajax({
       method: 'GET',
-      url: googleBooksUrl + isbn,
+      url: googleBooksUrl + searchTerm,
       success: function(response) {
         console.log(response);
         var bookInfo = response.items[0].volumeInfo;
