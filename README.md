@@ -369,7 +369,7 @@ _This URL will mostly stay the same for each call; only the search term at the e
 
 We can use string concatenation to add the right search term to the URL, and then locate information about that book:
 
-`https://www.googleapis.com/books/v1/volumes?q=" + isbnUserEntered`
+`https://www.googleapis.com/books/v1/volumes?q=" + searchTerm`
 
 > Paste the below URL into your browser and take a look at the JSON object that is returned.
 
