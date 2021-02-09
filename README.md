@@ -699,7 +699,7 @@ For example, if you receive a 404, it means that your request was not found.
 ### ADDITIONAL RESOURCES
 - Other APIs to checkout
 	- [Long List of APIs](https://github.com/public-apis/public-apis)
-	- [Teleport API](https://developers.teleport.org/api/)
+	- [Teleport API - Provides information about cities around the world](https://developers.teleport.org/api/)
 
 - Exercises
 	- [AJAX Photos](exercises/ajax_photos/js/main.js) (20 mins - Intermediate)
