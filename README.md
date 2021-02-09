@@ -697,8 +697,11 @@ For example, if you receive a 404, it means that your request was not found.
 
 
 ### ADDITIONAL RESOURCES
+- Other APIs to checkout
+	- [Long List of APIs](https://github.com/public-apis/public-apis)
+	- [Teleport API](https://developers.teleport.org/api/)
+
 - Exercises
-	- [Spotify.Me](exercises/spotify_me) (45 mins - Beginning / Intermediate)
 	- [AJAX Photos](exercises/ajax_photos/js/main.js) (20 mins - Intermediate)
 	- [Slidey McShowington](exercises/slidey_mcshowington) (45 mins - Intermediate / Advanced)
 	- [Infinite Giphy](exercises/infinite_giphy) (45 mins - Intermediate / Advanced)
