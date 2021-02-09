@@ -158,7 +158,39 @@ This allows us to change the parts of the page that need to be updated — w
 <a name="making-ajax-requests"></a>
 ## Making AJAX Requests
 
-Next, let's dig into the `ajax()` method, which we can use to request and send data. This method provides us with granular control by giving us more than 30 settings for managing our request.
+We can use the browser's native fetch API to request and send data with JavaScript. In previous years fetch API was not well supported by all popular browsers so using something like jQuery's `$.ajax()` made more sense. Now adays we don't have to worry about that.
+```js
+fetch()
+```
+
+The fetch function takes the URL for the resource we are requesting as an argument. This will fire off the request to the server's API.
+```js
+fetch('http://api.openweathermap.org/data/2.5/weather?q=London')
+```
+
+Once we've made a request to the database we want to handle the response that comes back to the browser. `.then()` allows us to handle what happens when the response comes back from the server by passing it a function. This function just converts the response into a form that we can actually use in our application. `return response.json()` will pull out the body of the response which is the data that we actually need.
+```js
+fetch('http://api.openweathermap.org/data/2.5/weather?q=London')
+	.then((response) => {
+		return response.json();
+	});
+```
+
+By chaining another `.then()` we can now work with the data from the body of the response. In this case it is just stored in a variable called `data` and for now let's log it out to see what we get.
+```js
+fetch('http://api.openweathermap.org/data/2.5/weather?q=London')
+	.then((response) => {
+		return response.json();
+	})
+	.then((data) => {
+		console.log(data);
+	});
+```
+
+Once we inspect the data we can find the information that we're looking for and render it out the page.
+
+
+This next example show how to use the `ajax()` method with jQuery. This method provides us with granular control by giving us more than 30 settings for managing our request.
 
 Let's take a look at the syntax for the AJAX method:
 
@@ -302,7 +334,6 @@ Let's start with a simple HTML form where a user can enter a search term, as wel
 
 <ul class="books">
 </ul>
-
 ```
 
 #### URLs
@@ -432,11 +463,11 @@ $('form').on('submit', function(e) {
         var bookInfo = response.items[0].volumeInfo;
 
         var listItemHTML = `<li>
-				<h2>${bookInfo.title}</h2>
-				<p>${bookInfo.description}</p>
-				<img src= ${bookInfo.imageLinks.thumbnail}>
-				<a href= ${bookInfo.previewLink }>Preview Book</a>
-			    </li>`
+					<h2>${bookInfo.title}</h2>
+					<p>${bookInfo.description}</p>
+					<img src= ${bookInfo.imageLinks.thumbnail}>
+					<a href= ${bookInfo.previewLink }>Preview Book</a>
+				</li>`;
 
         $('.books').append(listItemHTML);
       }
