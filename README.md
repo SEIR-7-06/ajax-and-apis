@@ -12,12 +12,11 @@
 ### STUDENT PRE-WORK
 *Before this lesson, you should already be able to:*
 
-- Use CSS selectors with the jQuery or `$` method to select elements in the DOM.
-- Use selectors and jQuery methods to:
+- Use the DOM API to...
 	- Add and remove classes on DOM elements.
 	- Get and set information inside DOM elements.
 	- Change the value of attributes on DOM elements.
-	- Write jQuery code to detect and react to a submit event.
+	- Listen for events and trigger functionality on those events.
 
 ---
 <a name="opening"></a>
@@ -37,7 +36,7 @@ What is an API and why are they useful? Watch this short [video](https://general
 
 Taken from HowStuffWorks.com:
 
-"An application-programming interface (API) is a set of programming instructions and standards for accessing a Web-based software application or Web tool. A software company releases its API to the public so that other software developers can design products that are powered by its service... [it] is a software-to-software interface, not a user interface. With APIs, applications talk to each other without any user knowledge or intervention."
+"An application-programming interface (API) is a set of programming instructions and standards for accessing a Web-based software application or Web tool. A software company releases its API to the public so that other software developers can design products that are powered by its service."
 
 As you saw in the video, Application Programming Interfaces (APIs) can be used to communicate between programs.
 
@@ -108,7 +107,7 @@ Describe APIs. List a few examples where it would be helpful to use an external 
 
 Later in this lesson, we'll take a look at some examples of how we can make API calls.
 
-Before we start using these APIs, let's take a step back and look at AJAX: A group of technologies we can use to load data into different parts of our page.
+Before we start using these APIs, let's look at AJAX: A group of technologies we can use to load data into different parts of our page.
 
 #### What is AJAX?
 
@@ -131,54 +130,64 @@ AJAX is used all over the web. You've probably encountered it before, even if yo
 #### How does AJAX work?
 
 1. First, the browser requests data from a server.
-2. The server then responds with data, often in HTML or JSON format.
-3. When the server has finished responding, the browser will fire an event. This event triggers a function that processes the data and adds it to the page.
+2. The server then responds with data, often in a format called **JSON**.
+3. When the server has responded back with the data, the browser can then display that data on the page.
 
-This allows us to change the parts of the page that need to be updated — without affecting the entire page.
-
-
-#### Advantages
-
-- __Faster__ - This is the most obvious reason for using AJAX on your front-end: AJAX allows easier and quicker interaction between user and website, as pages need not reload for new content to be displayed. The server doesn't have to get data, render HTML, and then spit it out; it just has to get data, and your already-loaded front-end does the rest.
-
-- __Compact__ - With AJAX, several application features can be handled using a single web page. That means we modularize our app into smaller bits, and it becomes easier to work on.
-
-- __Backend Separated from Front-end__ - Applications that use AJAX-heavy front-ends mean developers don't have to work on both sides of the stack at the same time. Some developers can be dedicated to building an API that just serves data, and others can focus on consuming that data and building interfaces.
+Using JavaScript we can change only the parts of the page that need to be updated — without affecting the entire page.
 
 
-#### Disadvantages
 
-- __Back and Refresh Buttons are Rendered Useless__ - Since things are loaded dynamically on a page without that page reloading (or more importantly, a URL being changed), clicking the back or refresh buttons won't work the way you're used to. That's actually a pretty big deal: UX designers are very familiar with the fact that users are _accustomed_ to being able to hit back when they need to. Some advanced front-end frameworks have tried to solve this issue with clever workarounds, but that's not always the case and not always accurate.
 
-- __JavaScript Can be Disabled__ - While JavaScript is secure and has been heavily used by websites for a long period of time, a percentage of website surfers prefer to turn JavaScript functionality off in their browser, rendering the AJAX application totally useless. That's not always the best thing to design for, and more often than not, you'll find yourself assuming users have JS on; but it's nonetheless important to know your whole site could be useless in some situations.
+<details>
+	<summary>#### Advantages of Using AJAX</summary>
 
-- __You Have to Consider the UX Even More__ - While UX is crucial for _any_ application, the fact that a page doesn't refresh means you have to be even more considerate of what a user is experiencing. If something in your JavaScript goes wrong, your AJAX breaks, and you don't have failsafes thoughtfully built in, your user might be clicking a button and seeing absolutely nothing happen. Most regular users won't have their consoles open in order to notice any errors.
+	- __Faster__ - This is the most obvious reason for using AJAX on your front-end: AJAX allows easier and quicker interaction between user and website, as pages need not reload for new content to be displayed. The server doesn't have to get data, render HTML, and then spit it out; it just has to get data, and your already-loaded front-end does the rest.
+
+	- __Compact__ - With AJAX, several application features can be handled using a single web page. That means we modularize our app into smaller bits, and it becomes easier to work on.
+
+	- __Backend Separated from Front-end__ - Applications that use AJAX-heavy front-ends mean developers don't have to work on both sides of the stack at the same time. Some developers can be dedicated to building an API that just serves data, and others can focus on consuming that data and building interfaces.
+</details>
+
+<details>
+	<summary>#### Disadvantages</summary>
+
+	- __Back and Refresh Buttons are Rendered Useless__ - Since things are loaded dynamically on a page without that page reloading (or more importantly, a URL being changed), clicking the back or refresh buttons won't work the way you're used to. That's actually a pretty big deal: UX designers are very familiar with the fact that users are _accustomed_ to being able to hit back when they need to. Some advanced front-end frameworks have tried to solve this issue with clever workarounds, but that's not always the case and not always accurate.
+
+	- __JavaScript Can be Disabled__ - While JavaScript is secure and has been heavily used by websites for a long period of time, a percentage of website surfers prefer to turn JavaScript functionality off in their browser, rendering the AJAX application totally useless. That's not always the best thing to design for, and more often than not, you'll find yourself assuming users have JS on; but it's nonetheless important to know your whole site could be useless in some situations.
+
+	- __You Have to Consider the UX Even More__ - While UX is crucial for _any_ application, the fact that a page doesn't refresh means you have to be even more considerate of what a user is experiencing. If something in your JavaScript goes wrong, your AJAX breaks, and you don't have failsafes thoughtfully built in, your user might be clicking a button and seeing absolutely nothing happen. Most regular users won't have their consoles open in order to notice any errors.
+</details>
 
 
 <a name="making-ajax-requests"></a>
 ## Making AJAX Requests
 
-We can use the browser's native fetch API to request and send data with JavaScript. In previous years fetch API was not well supported by all popular browsers so using something like jQuery's `$.ajax()` made more sense. Now adays we don't have to worry about that.
+We can use the browser's native fetch API to request data to a server (and also send data to a server). In previous years fetch API was not well supported by all popular browsers so using something like jQuery's `$.ajax()` made more sense. Nowadays we don't have to worry about that.
 ```js
 fetch()
 ```
 
-The fetch function takes the URL for the resource we are requesting as an argument. This will fire off the request to the server's API.
+The fetch function takes as an argument the URL for the resource we are requesting. 
+
+The code below will send a request for some data to the server's API.
 ```js
-fetch('http://api.openweathermap.org/data/2.5/weather?q=London')
+fetch('https://jsonplaceholder.typicode.com/posts')
 ```
 
-Once we've made a request to the database we want to handle the response that comes back to the browser. `.then()` allows us to handle what happens when the response comes back from the server by passing it a function. This function just converts the response into a form that we can actually use in our application. `return response.json()` will pull out the body of the response which is the data that we actually need.
+Once we've made a request for to the server for some data, the server will eventually send a response back to the browser. The `.then()` allows us to handle when a response successfully returns to the browser. This `.then()` method takes a single argument, a callback function that will be called and that takes in the `response` being returned to the browser.
+
+`response.json()` will pull out the **body of the response**, which is the actual data that we will use.
 ```js
-fetch('http://api.openweathermap.org/data/2.5/weather?q=London')
+fetch('https://jsonplaceholder.typicode.com/posts')
 	.then((response) => {
 		return response.json();
 	});
 ```
 
-By chaining another `.then()` we can now work with the data from the body of the response. In this case it is just stored in a variable called `data` and for now let's log it out to see what we get.
+We'll chain another `.then()` to the first one. This second `.then()` method takes in a callback function and is passed the actual data being returned from the first `.then()`. For now we'll just log out the data and see it in our browser's console.
+
 ```js
-fetch('http://api.openweathermap.org/data/2.5/weather?q=London')
+fetch('https://jsonplaceholder.typicode.com/posts')
 	.then((response) => {
 		return response.json();
 	})
@@ -187,10 +196,11 @@ fetch('http://api.openweathermap.org/data/2.5/weather?q=London')
 	});
 ```
 
-Once we inspect the data we can find the information that we're looking for and render it out the page.
+Take a moment to familiarize yourself with the data being logged out in the console.
 
+Now we'll take a look at how we take this data coming back from the API and display it on our webpage.
 
-This next example show how to use the `ajax()` method with jQuery. This method provides us with granular control by giving us more than 30 settings for managing our request.
+<!-- This next example show how to use the `ajax()` method with jQuery. This method provides us with granular control by giving us more than 30 settings for managing our request.
 
 Let's take a look at the syntax for the AJAX method:
 
@@ -310,7 +320,7 @@ We can provide them in any order, as long as we are using valid object literal n
 			$('#loading').remove();
 		}
   });
-  ```
+  ``` -->
 
 ***
 <a name="making-api-call"></a>
@@ -717,7 +727,7 @@ For example, if you receive a 404, it means that your request was not found.
 <a name="conclusion"></a>
 ## Conclusion
 - What's the main use case of AJAX? Why would anyone use it?
-- How can we request data from an API using jQuery?
+- How can we request data from an API?
 
 
 ***
