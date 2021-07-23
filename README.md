@@ -200,128 +200,6 @@ Take a moment to familiarize yourself with the data being logged out in the cons
 
 Now we'll take a look at how we take this data coming back from the API and display it on our webpage.
 
-<!-- This next example show how to use the `ajax()` method with jQuery. This method provides us with granular control by giving us more than 30 settings for managing our request.
-
-Let's take a look at the syntax for the AJAX method:
-
-```js
-$.ajax({ });
-```
-
-Then we'll use object literal notation to pass in a settings object as the argument.
-
-
-Here are some of the settings we can provide:
-
-<img src="assets/08-39-settings_list.svg">
-
-We can provide them in any order, as long as we are using valid object literal notation.
-
-
-- **method** This will take the value "GET" if we want to request data from a server, and "POST" if we want to send data that updates on a server.
-
-  ```js
-  $.ajax({
-    method: "GET"
-  });
-  ```
-- **url** The URL setting defines the page where we'll send the request.
-  ```js
-  $.ajax({
-		method: "GET",
-		url: "http://api.openweathermap.org/data/2.5/weather?q="
-  });
-  ```
-
-- **data** Next, we have the data setting, which allows you to send additional data to the server along with the request.
-
-  ```js
-  $.ajax({
-		method: "GET",
-		url: "http://api.openweathermap.org/data/2.5/weather?q=",
-		data: {
-				id: 123
-		}
-  });
-  ```
-
-- **success** Next, we have the success setting, which runs if the request is successfully completed.
-  ```js
-  $.ajax({
-    method: "GET",
-    url: "http://api.openweathermap.org/data/2.5/weather?q=",
-    data: {
-      id: 123
-  	},
-    success: function(response) {
-      $('#temp').html("The temperature in Detroit is " + response.temp);
-    }
-  });
-  ```
-
-- **error** The error setting will run a function if there is an error with the request.
-
-	```js
-	$.ajax({
-		method: "GET",
-		url: "http://api.openweathermap.org/data/2.5/weather?q=",
-		data: {
-			id: 123
-		},
-		success: function(response) {
-			$('#temp').html("The temperature in Detroit is " + response.temp);
-		},
-		error: function() {
-			alert("There was an error getting weather data.");
-		}
-	});
-	```
-
-- **beforeSend** We can use the beforeSend setting to run code before the request is sent.
-
-  ```js
-	$.ajax({
-		method: 'GET',
-		url: 'http://api.openweathermap.org/data/2.5/weather?q=',
-		data: {
-		  id: 123
-		},
-		success: function(response) {
-		  $('#temp').html('The temperature in Detroit is ' + response.temp);
-		},
-		error: function() {
-		  alert('There was an error getting weather data.');
-		},
-		beforeSend: function () {
-		  $('#page').append('Loading');
-		}
-	});
-  ```
-
-- **complete** And finally, we can use the complete setting to run a function after the request is complete.
-
-  ```js
-  $.ajax({
-		method: 'GET',
-		url: 'http://api.openweathermap.org/data/2.5/weather?q=',
-		data: {
-			id: 123
-		}
-		success: function(response) {
-			$('#temp').html('The temperature in Detroit is ' + response.temp);
-		},
-		error: function() {
-			alert('There was an error getting weather data.');
-		},
-		beforeSend: function () {
-			$('#page').append('Loading');
-		},
-		complete: function () {
-			$('#loading').remove();
-		}
-  });
-  ``` -->
-
 ***
 <a name="making-api-call"></a>
 ## Guided Practice - Making an API Call
@@ -348,13 +226,13 @@ Let's start with a simple HTML form where a user can enter a search term, as wel
 
 #### URLs
 
-Before taking a look at the JavaScript, let's take a step back and find out how we can access the data for a book using the Google Books API.
+Our goal is to get some data about books from the Google Books API.
 
-To access this information, we'll need a URL where we can find the JSON data for a book that matches a search term.
+Just like you would need the address for your friends house in order to visit them, we'll first want to know the address for the book data.
 
-How does the server know what the request is actually asking? This is the job of the URL, a special path that specifies where a resource can be found on the web.
+This address is referred as the URL. **URL** stands for **Uniform Resource Locator** and it locates our resource on the web.
 
-Let's take a look at the different components of a URL that could be used for an API call:
+We'll take a look at the different components of a URL.
 
 - **The Protocol:** HTTP — or **H**yper**t**ext **T**ransfer **P**rotocol — is a system of rules ("protocol") that determines how web pages ("hypertext") are sent ("transfer") from one place to another.
 
@@ -410,7 +288,7 @@ _This URL will mostly stay the same for each call; only the search term at the e
 
 We can use string concatenation to add the right search term to the URL, and then locate information about that book:
 
-`https://www.googleapis.com/books/v1/volumes?q=" + searchTerm`
+`"https://www.googleapis.com/books/v1/volumes?q=" + searchTerm`
 
 > Paste the below URL into your browser and take a look at the JSON object that is returned.
 
@@ -457,41 +335,42 @@ Okay! Now that we know more about the URL, we'll use that information to make th
 - Take a look at your console. We are using a `console.log` statement to log the response that was received from the server. Enter a search term, hit the submit button, and take a look at the full response that was returned.
 
 ```js
+const bookForm = document.getElementById('book-form');
+const searchInput = document.getElementById('search-term');
+const booksListEl = document.getElementById('books');
 
 var googleBooksUrl = "https://www.googleapis.com/books/v1/volumes?q=";
 
-$('form').on('submit', function(e) {
-  e.preventDefault();
+bookForm.addEventListener('submit', function(event) {
+	event.preventDefault();
 
-  var searchTerm = $('#search-term').val();
+	const searchTerm = searchInput.value;
 
-  $.ajax({
-      method: 'GET',
-      url: googleBooksUrl + searchTerm,
-      success: function(response) {
-        console.log(response);
-        var bookInfo = response.items[0].volumeInfo;
+	fetch(googleBooksUrl + searchTerm)
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			var bookInfo = data.items[0].volumeInfo;
 
-        var listItemHTML = `<li>
-					<h2>${bookInfo.title}</h2>
-					<p>${bookInfo.description}</p>
-					<img src= ${bookInfo.imageLinks.thumbnail}>
-					<a href= ${bookInfo.previewLink }>Preview Book</a>
-				</li>`;
+			var listItemHTML = `<li>
+				<h2>${bookInfo.title}</h2>
+				<p>${bookInfo.description}</p>
+				<img src= ${bookInfo.imageLinks.thumbnail}>
+				<a href= ${bookInfo.previewLink }>Preview Book</a>
+			</li>`;
 
-        $('.books').append(listItemHTML);
-      }
-  });
+			booksListEl.innerHTML = listItemHTML;
+		});
 });
-```
 
-> Note how constructing an HTML fragment for our list item and adding in the data that needs to be displayed using JavaScript gets a bit messy. We can use a templating library, such as Handlebars, to make this process cleaner and keep HTML out of our JS files.
+```
 
 ***
 <a name="reading-documentation"></a>
 ## Reading Documentation
 
-Now that we have some experience working with APIs, we're going to take a step back and learn how to fully understand an API's documentation.
+Now that we have some experience working with APIs, we're going to learn how to fully understand an API's documentation.
 
 There are no rules governing how to write documentation for an API, so its content is presented differently each time.
 
