@@ -139,7 +139,7 @@ Using JavaScript we can change only the parts of the page that need to be update
 
 
 <details>
-	<summary>#### Advantages of Using AJAX</summary>
+	<summary>Advantages of Using AJAX</summary>
 
 	- __Faster__ - This is the most obvious reason for using AJAX on your front-end: AJAX allows easier and quicker interaction between user and website, as pages need not reload for new content to be displayed. The server doesn't have to get data, render HTML, and then spit it out; it just has to get data, and your already-loaded front-end does the rest.
 
@@ -149,7 +149,7 @@ Using JavaScript we can change only the parts of the page that need to be update
 </details>
 
 <details>
-	<summary>#### Disadvantages</summary>
+	<summary>Disadvantages</summary>
 
 	- __Back and Refresh Buttons are Rendered Useless__ - Since things are loaded dynamically on a page without that page reloading (or more importantly, a URL being changed), clicking the back or refresh buttons won't work the way you're used to. That's actually a pretty big deal: UX designers are very familiar with the fact that users are _accustomed_ to being able to hit back when they need to. Some advanced front-end frameworks have tried to solve this issue with clever workarounds, but that's not always the case and not always accurate.
 
@@ -213,15 +213,27 @@ We'll create a basic site where users can add books to a reading list by enterin
 Let's start with a simple HTML form where a user can enter a search term, as well as an unordered list where we will add each book the user searches for:
 
 ```html
-<h1>Search for a book by search term</h1>
-
-<form>
-	<input type="text" id="search-term" name="search-term" value="" placeholder="Please enter a search term">
-	<button type="submit">Find Book</button>
-</form>
-
-<ul class="books">
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="./app.js"></script>
+  <title>Google Books API</title>
+</head>
+<body>
+  <h1>Search for a book by search term</h1>
+  
+  <form id="book-form">
+    <input type="text" id="search-term" name="search-term" value="" placeholder="Please enter a search term">
+    <button type="submit">Find Book</button>
+  </form>
+  
+  <ul id="books">
+  </ul>
+</body>
+</html>
 ```
 
 #### URLs
@@ -363,7 +375,6 @@ bookForm.addEventListener('submit', function(event) {
 			booksListEl.innerHTML = listItemHTML;
 		});
 });
-
 ```
 
 ***

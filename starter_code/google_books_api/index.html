@@ -1,26 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Find a Book</title>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="./app.js"></script>
+  <title>Document</title>
 </head>
 <body>
-
-  <h1>Search for a book by Topic</h1>
-
+  <h1>Search for a book by search term</h1>
+  
   <form id="book-form">
-  	<input type="text" id="search-term" name="search-term" value="" placeholder="Please enter a search term">
-  	<button type="submit">Find Book</button>
+    <input type="text" id="search-term" name="search-term" value="" placeholder="Please enter a search term">
+    <button type="submit">Find Book</button>
   </form>
-
-  <ul class="books">
+  
+  <ul id="books">
   </ul>
-
-
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="main.js" type="text/javascript" charset="utf-8" async defer></script>
-
 </body>
 </html>

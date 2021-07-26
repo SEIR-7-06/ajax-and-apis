@@ -1,40 +1,28 @@
-const url = 'https://www.googleapis.com/books/v1/volumes?q=';
-const options = '&maxResults=15';
+const bookForm = document.getElementById('book-form');
+const searchInput = document.getElementById('search-term');
+const booksListEl = document.getElementById('books');
 
-$('#book-form').on('submit', function(event) {
-  event.preventDefault();
-  // - Get the input value
-  const searchTerm = $('#search-term').val();
-  const endPoint = `${url}${searchTerm}${options}`;
+var googleBooksUrl = "https://www.googleapis.com/books/v1/volumes?q=";
 
-  console.log(endPoint);
-  // - Make a request to the books DB
-  fetch(endPoint)
-    .then((response) => {
-      return response.json()
-    })
-    .then((data) => {
-      console.log(data);
+bookForm.addEventListener('submit', function(event) {
+	event.preventDefault();
 
-      data.items.forEach((item) => {
-        const bookInfo = item.volumeInfo;
+	const searchTerm = searchInput.value;
 
-        const bookTemplate = (
-          `<li>
-            <h2>${bookInfo.title}</h2>
-            <p>${bookInfo.description}</p>
-            <img src=${bookInfo.imageLinks.thumbnail} />
-            <a href="${bookInfo.previewLink}" target="_blank">
-              View the Book
-            </a>
-          </li>`
-        );
+	fetch(googleBooksUrl + searchTerm)
+		.then((response) => {
+			return response.json();
+		})
+		.then((data) => {
+			var bookInfo = data.items[0].volumeInfo;
 
-        $('.books').append(bookTemplate);
-      });
-    });
+			var listItemHTML = `<li>
+				<h2>${bookInfo.title}</h2>
+				<p>${bookInfo.description}</p>
+				<img src= ${bookInfo.imageLinks.thumbnail}>
+				<a href= ${bookInfo.previewLink }>Preview Book</a>
+			</li>`;
 
-
-  // - Pull out the response body
-  // - Render books data on the page
+			booksListEl.innerHTML = listItemHTML;
+		});
 });
