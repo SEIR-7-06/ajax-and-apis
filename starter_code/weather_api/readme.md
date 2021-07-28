@@ -11,7 +11,7 @@
 		- **.then:** Chain your `.then()`s together. Don't forget to use the `.json()` method!
 5. Take the data from the API and display it in the DOM. Example: "The weather in {city} is {75} degrees."
 6. **Hint** - you can request that the temperature units come back in either Metric or Imperial formats: https://openweathermap.force.com/s/article/switching-between-temperature-units-2019-10-24-21-47-24
-7. **Bonus:** Implement a feature that allows the user to select what temperature unit they'd like their data to come back in
+7. **Bonus:** Implement a feature that allows the user to select what temperature unit they'd like their data to come back in (Farenheit, Celcius, Kelvin)
 8. **Bonus:** Add a function that will run if there is an error with the request. Display an error message if this is the case.
 
 
