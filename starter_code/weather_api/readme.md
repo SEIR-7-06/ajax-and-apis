@@ -13,13 +13,14 @@
 6. **Hint** - you can request that the temperature units come back in either Metric or Imperial formats: https://openweathermap.force.com/s/article/switching-between-temperature-units-2019-10-24-21-47-24
 7. **Bonus:** Implement a feature that allows the user to select what temperature unit they'd like their data to come back in (Farenheit, Celcius, Kelvin)
 8. **Bonus:** Add an `<img>` icon that reflects the weather code from the API response: https://openweathermap.org/weather-conditions 
-9. **Bonus:** Add a function that will run if there is an error with the request. Display an error message if this is the case.
+9. **Bonus:** Add a function that will run if there is an error with the request. Display an error message if this is the case. 
+	- **Hint** Look up `.catch()`
 
 
 
 
 ## Hints
-Here's what a sample URL will look like:
+Here's what a sample URL may look like. Note! You will have to supply your own API Key:
 
 ```js
 'http://api.openweathermap.org/data/2.5/weather?q=Chicago&units=imperial&appid=02e84210a52ed716535f02989864d080'
@@ -30,9 +31,7 @@ Following this format:
 'http://api.openweathermap.org/data/2.5/weather?q=City&units=imperial&appid=yourAppKey'
 ```
 
+```
 const weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
-
-
-// Get an api key: http://openweathermap.org/appid#get
-const key = 'Your key here';
-
+const apiKey = 'Your key here';
+```
