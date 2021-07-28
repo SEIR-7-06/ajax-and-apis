@@ -6,11 +6,12 @@
 3. Add an event for the form submit in your main.js file. (Don't forget to prevent the default action for forms so that the page won't refresh.)
 4. When the form is submitted:
 	- Get the value the user entered into the `#city` field and store it in a variable `cityName`.
-	- Use the `ajax()` method to write a request using the following settings:
+	- Use the `fetch()` method to write a request to the API:
 		- **url:** See hint below to find out how the URL should be formatted, or look at the documentation.
-		- **method:** Which method will we use to get data?
-		- **success:** A function that will run when the API call is successful. From within the success function, update the text for `#temp` to display the temperature in this format: "The weather in {city} is {75} degrees."
-5. **Bonus:** Add a function that will run if there is an error with the request. Display an error message if this is the case.
+		- **.then:** Chain your `.then()`s together. Don't forget to use the `.json()` method!
+5. The temperature in this format: "The weather in {city} is {75} degrees."
+6. **Hint** - you can request that the temperature units come back in either Metric or Imperial formats: https://openweathermap.force.com/s/article/switching-between-temperature-units-2019-10-24-21-47-24
+8. **Bonus:** Add a function that will run if there is an error with the request. Display an error message if this is the case.
 
 
 
@@ -27,9 +28,9 @@ Following this format:
 'http://api.openweathermap.org/data/2.5/weather?q=City&units=imperial&appid=yourAppKey'
 ```
 
-var weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
+const weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
 
 
 // Get an api key: http://openweathermap.org/appid#get
-var key = 'Your key here';
+const key = 'Your key here';
 
